@@ -1,0 +1,349 @@
+In this section the results will be reported, highlighting the difference between the different meshes. 
+
+The solutions are computed with PCG method using Jacobi as precondition and with the incomplete Cholesky factorization. The last one solution is displayed in Fig. \ref{fig: stationary_solution}.
+
+In Tab. \ref{tab: data_point} is displayed the solution at different times for points $P_1$, $P_2$ and $P_3$.
+
+In Fig. \ref{fig: boundary_solution} the solutions along the boundary are displayed for different meshes at times $2.5$, $5.0$, $7.5$ and $10.0$.
+
+In Fig. \ref{fig: track point for all time} the solutions for the three points for all the whole time are displayed. Each figure indicates differents meshes.
+
+The value of the ratio $\mathbf{r}$ and the error $\mathbf{\varepsilon}$ are displayed in Tab. \ref{tab: table_R_error}. 
+The ratio $\mathbf{r}$ helps assess how the error changes relative to the change in the mesh refinement level. A value of $\mathbf{r}$ close to 1 suggests that the error is changing proportionally to the change in mesh refinement level, indicating a balanced refinement. Deviations from 1 may indicate over-refinement or under-refinement, providing insights into the effectiveness of the mesh and the convergence behavior of the numerical solution.
+The ratio are computed as follow $$\mathbf{r}=\frac{\varepsilon_{k-1}}{\varepsilon_k} ( \frac{h_k}{h_{k-1}})^2$$
+The vector $\mathbf{h}$ contains the maximum Euclidean distance between any two vertices in the mesh for each iteration (so for each mesh). It can be interpreted as a measure of the characteristic size or diameter of the mesh.
+The vector $\mathbf{\varepsilon}$ represents the error norms comparing the solution obtained with the real solution.
+$$\varepsilon \simeq \sqrt{ \sum_{i=1}^{n}[(u_i-u(\mathbf{x_i},\mathbf{y_i}))^2 \frac{\Sigma_e \Delta_e}{3}]}$$
+The parameter $\Delta_e$ is computed as explained in the previous chapter.
+
+In Fig. \ref{fig: Residual normal cholensky} and Fig. \ref{fig: Residual normal jacobi} are dispalyed the residual norma in semi logaritmic scale for the Cholensky and Jacobi preconditioner respectively.
+
+%---------------------------------------SOLUTION---------------------------------------------------
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh0/u_chol_mesh0.png}
+        \caption{mesh0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh1/u_chol_mesh1.png}
+        \caption{mesh1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh2/u_chol_mesh2.png}
+        \caption{mesh2}
+    \end{subfigure}
+
+    \vspace{1em} % Spacing between rows
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh3/u_chol_mesh3.png}
+        \caption{mesh3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh4/u_chol_mesh4.png}
+        \caption{mesh4}
+    \end{subfigure}
+
+    \caption{Stationary solution on different meshes}
+    \label{fig: stationary_solution}
+\end{figure}
+
+%--------------------------------TRACE----------------------------------------------------
+ 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh0/trace_u_chol_mesh0.png}
+        \caption{mesh0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh1/trace_u_chol_mesh1.png}
+        \caption{mesh1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh2/trace_u_chol_mesh2.png}
+        \caption{mesh2}
+    \end{subfigure}
+
+    \vspace{1em} % Spacing between rows
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh3/trace_u_chol_mesh3.png}
+        \caption{mesh3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh4/trace_u_chol_mesh4.png}
+        \caption{mesh4}
+    \end{subfigure}
+
+    \caption{Solution along the boundary on different meshes at three different times}
+    \label{fig: boundary_solution}
+\end{figure}
+
+%------------------------------TRACK-------------------------------------------------
+ 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh0/track_chol_mesh0.png}
+        \caption{mesh0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh1/track_chol_mesh1.png}
+        \caption{mesh1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh2/track_chol_mesh2.png}
+        \caption{mesh2}
+    \end{subfigure}
+
+    \vspace{1em} % Spacing between rows
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh3/track_chol_mesh3.png}
+        \caption{mesh3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh4/track_chol_mesh4.png}
+        \caption{mesh4}
+    \end{subfigure}
+
+    \caption{Solution on the three tracking points for all the times and for every meshes}
+    \label{fig: track point for all time}
+\end{figure}
+
+%---------------------------------------RESIDUAL NORM CHOLENSKY-----------------------------
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh0/Semilog_Residual_chol_mesh0.png}
+        \caption{mesh0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh1/Semilog_Residual_chol_mesh1.png}
+        \caption{mesh1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh2/Semilog_Residual_chol_mesh2.png}
+        \caption{mesh2}
+    \end{subfigure}
+
+    \vspace{1em} % Spacing between rows
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh3/Semilog_Residual_chol_mesh3.png}
+        \caption{mesh3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh4/Semilog_Residual_chol_mesh4.png}
+        \caption{mesh4}
+    \end{subfigure}
+
+    \caption{Value of the Residual norm for the Cholensky Preconditioner in semi-log scale}
+    \label{fig: Residual normal cholensky}
+\end{figure}
+
+%---------------------------------------RESIDUAL NORM JACOBI-----------------------------
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh0/Semilog_Residual_jac_mesh0.png}
+        \caption{mesh0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh1/Semilog_Residual_jac_mesh1.png}
+        \caption{mesh1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh2/Semilog_Residual_jac_mesh2.png}
+        \caption{mesh2}
+    \end{subfigure}
+
+    \vspace{1em} % Spacing between rows
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh3/Semilog_Residual_jac_mesh3.png}
+        \caption{mesh3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,trim=0mm 0mm 0mm 7.5mm, clip]{Images/mesh4/Semilog_Residual_jac_mesh4.png}
+        \caption{mesh4}
+    \end{subfigure}
+
+    \caption{Value of the Residual norm for the Jacobi Preconditioner in semi-log scale}
+    \label{fig: Residual normal jacobi}
+\end{figure}
+
+%---------------------------------------TABLE--------------------------------
+ 
+\begin{table}[htbp]
+    \centering
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Time} & \textbf{P1} & \textbf{P2} & \textbf{P3} \\
+            \hline
+            2.5 & 0.67116 & 0.31958 & 0.10464 \\
+            5   & 0.75329 & 0.44864 & 0.18288 \\
+            7.5 & 0.77613 & 0.48538 & 0.2057  \\
+            10  & 0.78263 & 0.49584 & 0.2122  \\
+            \hline
+        \end{tabular}
+        \caption{mesh0}
+        \label{subtab:mesh0}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Time} & \textbf{P1} & \textbf{P2} & \textbf{P3} \\
+            \hline
+            2.5 & 0.67183 & 0.31743 & 0.10255 \\
+            5   & 0.75419 & 0.44737 & 0.1808 \\
+            7.5 & 0.77734 & 0.48481 & 0.20393 \\
+            10  & 0.78401 & 0.49561 & 0.2106 \\
+            \hline
+        \end{tabular}
+        \caption{mesh1}
+        \label{subtab:mesh1}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Time} & \textbf{P1} & \textbf{P2} & \textbf{P3} \\
+            \hline
+            2.5 & 0.67183 & 0.3168 & 0.10201 \\
+            5   & 0.75428 & 0.44468 & 0.18029 \\
+            7.5 & 0.77755 & 0.48465 & 0.20353 \\
+            10  & 0.78427 & 0.49554 & 0.2106 \\
+            \hline
+        \end{tabular}
+        \caption{mesh2}
+        \label{subtab:mesh2}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Time} & \textbf{P1} & \textbf{P2} & \textbf{P3} \\
+            \hline
+            2.5 & 0.67185 & 0.31665 & 0.10187 \\
+            5   & 0.75433 & 0.4469  & 0.18015 \\
+            7.5 & 0.77762 & 0.48462 & 0.20341 \\
+            10  & 0.78436 & 0.49555 & 0.21015 \\
+            \hline
+        \end{tabular}
+        \caption{mesh3}
+        \label{subtab: mesh3}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Time} & \textbf{P1} & \textbf{P2} & \textbf{P3} \\
+            \hline
+            2.5 & 0.67184 & 0.31661 & 0.10183 \\
+            5   & 0.75433 & 0.44688 & 0.18011 \\
+            7.5 & 0.77763 & 0.48461 & 0.20338 \\
+            10  & 0.78437 & 0.49554 & 0.21013 \\
+            \hline
+        \end{tabular}
+        \caption{mesh4}
+        \label{subtab: mesh4}
+    \end{subtable}
+    
+    \caption{Solution at different times for points $P_1$, $P_2$ and $P_3$ for different meshes}
+    \label{tab: data_point}
+\end{table}
+
+%---------------------------------------------------
+
+\begin{table}[htbp]
+    \centering
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Meshes} & \textbf{Iteration} & \textbf{$\varepsilon$} & \textbf{r} \\
+            \hline
+            0 & 5 & 0.59415 & 0 \\
+            1 & 10 & 0.54341 & 1.0934 \\
+            2 & 19 & 0.50342 & 1.0794 \\
+            3 & 35 & 0.50631 & 0.99429 \\
+            4 & 69 & 0.49026 & 1.0327 \\
+            \hline
+        \end{tabular}
+        \caption{Results obtained using Cholesky preconditioner.}
+        \label{table:cholesky_results}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\linewidth}
+        \centering
+        \begin{tabular}{cccc}
+            \hline
+            \textbf{Meshes} & \textbf{Iteration} & \textbf{$\varepsilon$} & \textbf{r} \\
+            \hline
+            0 & 29 & 0.59415 & 0 \\
+            1 & 48 & 0.54341 & 1.0934 \\
+            2 & 70 & 0.50342 & 1.0794 \\
+            3 & 107 & 0.50631 & 0.99429 \\
+            4 & 193 & 0.49026 & 1.0327 \\
+            \hline
+        \end{tabular}
+        \caption{Results obtained using Jacobi preconditioner.}
+        \label{table:jacobi_results}
+    \end{subtable}
+    \caption{value of iteration, error $\varepsilon$ the ratio r for every meshes}
+    \label{tab: table_R_error}
+\end{table}
+
