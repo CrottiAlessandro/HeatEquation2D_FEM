@@ -1,0 +1,88 @@
+# =================
+# MATLAB & Simulink
+# =================
+
+# --- MATLAB ---
+# MATLAB files
+*.asv
+*.bak
+*.mex*
+*.p
+*.slx.r20*
+*.slxc
+*.orig
+*.autosave
+*.rpt
+*.sldd
+
+# MATLAB error logs
+*.log
+MATLAB_Editor_State.xml
+
+# MATLAB search path
+pathdef.m
+
+# MATLAB instrument control
+*.mdf
+
+# MATLAB profiler
+prof.log
+
+# MATLAB Compiler
+*_mcr
+*mcr.app
+/deploy/
+/distrib/
+/for_redistribution/
+/for_testing/
+
+# --- SIMULINK ---
+# Simulink files
+*.slx.autosave
+*.slx.mdl
+*.slx.bak
+*.mdl.autosave
+*.mdl.bak
+*.slxc.autosave
+*.slxc.bak
+*.s~
+
+# Simulink code generation
+slprj/
+*_ert_rtw/
+*_grt_rtw/
+*_slrt_rtw/
+*_sfun.c
+*_sfun.h
+*_sfun.o
+*_sfun.mex*
+*_sfun_rtw/
+
+# =================
+# OS Generated files
+# =================
+
+# --- Mac ---
+.DS_Store
+.AppleDouble
+.LSOverride
+.Trashes
+.Spotlight-V100
+.fseventsd
+
+# --- Windows ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# =================
+# Project-specific
+# =================
+# Non caricare i file di dati grezzi se sono molto grandi
+# Esempio:
+# *.dat
+
+# Eventuali cartelle di output che non vuoi tracciare
+# Nota: la cartella 'figure' la vogliamo, quindi NON la aggiungiamo qui.
